@@ -17,4 +17,45 @@ class ArrayController extends Controller
         
         print_r($duplicates);
     }
+
+
+    public function combineArray() {
+        $data_array = array(
+            array(
+                "company" => "Company A",
+                "file" => "document.docx"
+            ),
+            array(
+                "company" => "Company A",
+                "file" => "letter.txt"
+            ),
+            array(
+                "company" => "Company B",
+                "file" => "insurance.docx"
+            )
+        );
+        
+        $grouped_array = array();
+        foreach ($data_array as $element) {
+            $grouped_array[$element['company']][] = $element;
+        }
+        
+        echo "Array grouped according to Company: <br>";
+        print_r($grouped_array);
+    }
+
+
+    public function getCombineArray() 
+    {
+        $collection = collect([
+            ["company" => "Company A", "file" => "document.docx"],
+            ["company" => "Company A", "file" => "letter.txt"],
+            ["company" => "Company B", "file" => "insurance.docx"],
+        ])->groupBy('company');
+
+
+       return $collection;
+    }
 }
+
+

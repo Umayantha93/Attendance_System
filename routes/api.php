@@ -19,6 +19,8 @@ Route::get('/get-file', [AttendanceController::class, 'getFile']);
 
 Route::get('/get-array', [ArrayController::class, 'arrayNumbers']);
 
+Route::get('/get-combine-array', [ArrayController::class, 'getCombineArray']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
