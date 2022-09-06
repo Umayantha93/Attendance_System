@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\ArrayController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,6 +16,8 @@ use App\Http\Controllers\AttendanceController;
 */
 Route::post('/post-file', [AttendanceController::class, 'postFile']);
 Route::get('/get-file', [AttendanceController::class, 'getFile']);
+
+Route::get('/get-array', [ArrayController::class, 'arrayNumbers']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
